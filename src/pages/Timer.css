@@ -1,0 +1,143 @@
+.timer-container {
+  /* To disable the scroll bar caused by nav adding to the height */
+  height: calc(100vh - 64px);
+  /* Center timer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Padding on all sides */
+  padding: 0rem;
+  /* Center text */
+  text-align: center;
+}
+
+.timer-display {
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  /* Spacing below the timer */
+  margin-bottom: 0rem;
+  color: #111;
+}
+
+.button-row {
+  /* Align buttons in a row */
+  display: flex;
+  /* Space between buttons */
+  gap: 1rem;
+  /* Center buttons horizontally and give space above the button row */
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.start-button,
+.restart-button {
+  /* Padding on all sides */
+  padding: 0.75rem 1.5rem;
+  /* Slight spacing around */
+  margin: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  /* Rounded corners */
+  border-radius: 8px;
+  /* Pointer cursor on hover */
+  cursor: pointer;
+}
+
+.start-button {
+  background-color: #10b981;
+  color: white;
+}
+
+.restart-button {
+  background-color: #ef4444;
+  color: white;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}
+
+.restart-button:hover {
+  background-color: #700505;
+}
+
+.break-button:hover {
+  background-color: #3384aa;
+}
+
+.congrats-text {
+  font-size: 2rem;
+  color: #10b981;
+  margin-bottom: 1rem;
+  max-width: 500px;
+
+}
+
+.break-button {
+  background-color: #26a8e4;
+  color: white;
+  /* Padding on all sides */
+  padding: 0.75rem 1.5rem;
+  /* Slight spacing around */
+  margin: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  /* Rounded corners */
+  border-radius: 8px;
+  /* Pointer cursor on hover */
+  cursor: pointer;
+}
+
+.guided-access-btn {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  background: #e2e8f0;
+  /* light gray */
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  /* a bit of space under the button */
+}
+
+.guided-access-btn:hover {
+  background: #cbd5e1;
+}
+
+.guided-access-overlay {
+  position: fixed;
+  inset: 0;
+  /* top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* on top of everything */
+}
+
+.guided-access-dialog {
+  background: #ffffff;
+  max-width: 90%;
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.close-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: #10b981;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #0e9b70;
+}

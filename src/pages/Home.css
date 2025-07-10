@@ -1,0 +1,49 @@
+#home {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (max-width: 500px) {
+  #home {
+    padding: 0.5rem;
+  }
+}
+
+/* Only center the clock text itself */
+#clock {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  opacity: 0;
+  /* start transparent */
+  transition: opacity 2s ease-in-out;
+}
+
+#clock.visible {
+  opacity: 1;
+}
+
+#clock h1 {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(6rem, 15vw, 12rem);
+  color: #000000;
+  letter-spacing: 1px;
+}
+
+.quote {
+  min-height: 5em;
+  max-width: 500px;
+  font-size: 1.25rem;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  margin-bottom: 1.5rem;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+.quote.visible {
+  opacity: 1;
+}

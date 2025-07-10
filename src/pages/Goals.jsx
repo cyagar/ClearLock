@@ -96,7 +96,7 @@ function Goals() {
           type="text"
           className="todo-input"
           value={input}
-          placeholder="What we need?"
+          placeholder="What's the plan for today?"
           onChange={handleChange}
         />
         <button type="submit" className="todo-btn">
@@ -106,7 +106,7 @@ function Goals() {
 
       <ul>
         {todos.map((taskObj) => (
-          <li key={taskObj.id}>
+          <li className={`li ${taskObj.completed ? "complete" : ""}`} key={taskObj.id}>
             {/* Conditional rendering: show edit input if isEditing is true, otherwise show task details */}
             {taskObj.isEditing ? (
               <>
@@ -133,19 +133,19 @@ function Goals() {
                   className="edit-btn"
                   onClick={() => editTask(taskObj.id)}
                 >
-                  ⚙
+                  ✏️
                 </button>
                 <button
                   className="complete-btn"
                   onClick={() => completeTask(taskObj.id)}
                 >
-                  {taskObj.completed ? "❌" : "✅"}
+                  {taskObj.completed ? "↻" : "✔"}
                 </button>
                 <button
                   className="delete-btn"
                   onClick={() => deleteTask(taskObj.id)}
                 >
-                  🗑
+                  ✖
                 </button>
               </>
             )}

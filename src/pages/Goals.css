@@ -102,3 +102,7 @@ li {
   text-decoration: line-through;
   color: gray;
 }
+
+.li.complete {
+  background-color: #c2c2c2;
+}

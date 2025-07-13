@@ -69,7 +69,7 @@ function Timer({
             className="guided-access-btn"
             onClick={() => setShowGuidedAdvice(true)}
           >
-            Guided Access Tip
+            Guided Access Tip
           </button>
 
           {showGuidedAdvice && (

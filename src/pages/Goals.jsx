@@ -16,6 +16,11 @@ function Goals() {
   });
   // Edit state to manage existing todos
   const [editInput, setEditInput] = useState("");
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    setFadeIn(true);
+  }, []);
 
   // Save todos to localStorage whenever they change
   useEffect(() => {
@@ -88,7 +93,7 @@ function Goals() {
   };
 
   return (
-    <div className="goals-container">
+    <div className={`goals-container ${fadeIn ? "fade-in" : ""}`}>
       <h1>To-Do</h1>
 
       <form className="todo-form" onSubmit={handleSubmit}>

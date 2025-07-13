@@ -38,10 +38,21 @@ function Goals() {
       task: text,
       completed: false,
       isEditing: false,
+      isAdding: true
     };
 
     // Update the todos state by adding the new todo to the existing array
-    setTodos([...todos, newTodo]);
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+
+    // Remove the 'isAdding' flag after a short delay
+    setTimeout(() => {
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) => {
+          const { isAdding, ...rest } = todo;
+          return todo.id === newTodo.id ? rest : todo;
+        })
+      );
+    }, 500); // Should match your animation duration
   };
 
   // Handler for changes in the new todo input field
@@ -56,7 +67,15 @@ function Goals() {
 
   // Function to delete a task by its unique ID
   const deleteTask = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, isRemoving: true } : todo
+      )
+    );
+    // Remove the task from the DOM after the animation completes
+    setTimeout(() => {
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    }, 500); // Should match your animation duration
   };
 
   // Function to toggle the 'completed' status of a task
@@ -111,7 +130,12 @@ function Goals() {
 
       <ul>
         {todos.map((taskObj) => (
-          <li className={`li ${taskObj.completed ? "complete" : ""}`} key={taskObj.id}>
+          <li
+            className={`li ${taskObj.completed ? "complete" : ""} ${
+              taskObj.isAdding ? "task-entering" : ""
+            } ${taskObj.isRemoving ? "task-exiting" : ""}`}
+            key={taskObj.id}
+          >
             {/* Conditional rendering: show edit input if isEditing is true, otherwise show task details */}
             {taskObj.isEditing ? (
               <>

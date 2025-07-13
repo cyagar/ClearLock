@@ -1,5 +1,4 @@
-#home {
-  height: calc(100vh - 64px);
+.home {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,19 +13,17 @@
   }
 }
 
-/* Only center the clock text itself */
-#clock {
+.clock {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   opacity: 0;
-  /* start transparent */
   transition: opacity 2s ease-in-out;
 }
 
-#clock.visible {
+.clock.visible {
   opacity: 1;
 }
 
-#clock h1 {
+.clock-time {
   margin: 0;
   padding: 0;
   font-size: clamp(6rem, 15vw, 12rem);

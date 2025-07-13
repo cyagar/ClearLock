@@ -6,7 +6,7 @@ import Goals from "./pages/Goals";
 import "./App.css";
 
 function App() {
-  // Timer logic that always runs no matter where in the app
+  // Timer logic that is in App.jsx so it can always runs no matter where in the app
   const [timeLeft, setTimeLeft] = useState(0.1 * 60);
   const [isRunning, setIsRunning] = useState(false);
   // To store the id returned by setInterval

@@ -4,8 +4,9 @@ import "./Home.css";
 function Home() {
   // Time state starting as empty string
   const [time, setTime] = useState("");
-  // Quote state
+  // Quote state object
   const [quote, setQuote] = useState({ text: "", author: "" });
+  // Visible states for quote and clock (used for fade animation)
   const [quoteVisible, setQuoteVisible] = useState(false);
   const [clockVisible, setClockVisible] = useState(false);
 
@@ -24,6 +25,7 @@ function Home() {
     return `${hr}:${min}`;
   }
 
+  // Fetch quote from api
   async function fetchQuote() {
     try {
       const zenURL = "https://zenquotes.io/api/random";
@@ -34,7 +36,10 @@ function Home() {
       setQuoteVisible(true);
     } catch (err) {
       console.error(err);
-      setQuote({ text: "Keep calm and code on.", author: "Unknown" });
+      setQuote({
+        text: "At the end of the day the day ends.",
+        author: "Unknown",
+      });
       setQuoteVisible(true);
     }
   }
@@ -45,8 +50,9 @@ function Home() {
     setTime(showTime());
     // Get quote
     fetchQuote();
-    setClockVisible(false); // ensure it's hidden first
-    setTimeout(() => setClockVisible(true), 10); // delay triggers transition
+    // Hide the clock at first, then after a very short delay, set it to visible, this ensures false was registered first
+    setClockVisible(false);
+    setTimeout(() => setClockVisible(true), 10);
     // Upadate clock every second
     const interval = setInterval(() => {
       setTime(showTime());
@@ -56,7 +62,8 @@ function Home() {
   }, []);
 
   return (
-    <div id="home">
+    <div className="home">
+      {/* Display quote and author, add visible class for fade animation */}
       <div className={`quote ${quoteVisible ? "visible" : ""}`}>
         {quote.text ? (
           `"${quote.text}"`
@@ -65,9 +72,9 @@ function Home() {
         )}
         {quote.author && <div className="author">- {quote.author}</div>}
       </div>
-
-      <div id="clock" className={clockVisible ? "visible" : ""}>
-        <h1>{time}</h1>
+      {/* Display clock, add visible class for fade animation */}
+      <div className={`clock ${clockVisible ? "visible" : ""}`}>
+        <h1 className="clock-time">{time}</h1>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(80px); /* optional slight slide up */
+    transform: translateY(-40px); /* optional slight slide up */
   }
   to {
     opacity: 1;
@@ -10,7 +10,50 @@
 }
 
 .fade-in {
-  animation: fadeIn 1.5s ease-out forwards;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Animations for individual tasks */
+@keyframes taskEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px; /* A value larger than the max possible height of a list item */
+    padding-top: 12px; /* Original padding */
+    padding-bottom: 12px; /* Original padding */
+    margin-top: 0px; /* Original margin */
+    margin-bottom: 10px; /* Original margin */
+  }
+}
+
+@keyframes taskExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 body {
@@ -26,9 +69,8 @@ body {
 }
 
 .goals-container {
-    /**/width: 90vw;
+  width: 90vw;
   max-width: 600px;
-  /*margin: 60px auto;*/
   padding: 20px;
   background-color: white;
   border-radius: 12px;
@@ -74,13 +116,13 @@ h1 {
 }
 
 .todo-btn {
-  background-color: #007bff;
+  background-color: #0f25a0;
   color: white;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 .todo-btn:hover {
-  background-color: #00448d;
+  background-color: #09186b;
 }
 
 .edit-btn {
@@ -101,6 +143,7 @@ h1 {
 .save-btn {
   background-color: #17a2b8;
   color: white;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 .save-btn:hover {
@@ -121,11 +164,23 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  /* Add transition for smooth property changes */
+  transition: all 0.5s ease-out; /* This helps with general layout changes */
+  overflow: hidden; /* Important for max-height animation */
+}
+
+/* Specific animations for adding and removing */
+.task-entering {
+  animation: taskEnter 0.5s ease-out forwards;
+}
+
+.task-exiting {
+  animation: taskExit 0.5s ease-out forwards;
 }
 
 .text {
   flex: 1;
-  text-align: center;
+  text-align: left; /* Changed from center for better flow with variable text length */
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 

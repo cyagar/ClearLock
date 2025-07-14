@@ -1,7 +1,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-40px); /* optional slight slide up */
+    transform: translateY(-40px);
   }
   to {
     opacity: 1;
@@ -13,7 +13,6 @@
   animation: fadeIn 1s ease-out forwards;
 }
 
-/* Animations for individual tasks */
 @keyframes taskEnter {
   from {
     opacity: 0;
@@ -27,11 +26,11 @@
   to {
     opacity: 1;
     transform: translateY(0);
-    max-height: 200px; /* A value larger than the max possible height of a list item */
-    padding-top: 12px; /* Original padding */
-    padding-bottom: 12px; /* Original padding */
-    margin-top: 0px; /* Original margin */
-    margin-bottom: 10px; /* Original margin */
+    max-height: 200px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 }
 
@@ -56,14 +55,22 @@
   }
 }
 
+.task-entering {
+  animation: taskEnter 0.7s ease-out forwards;
+}
+
+.task-exiting {
+  animation: taskExit 0.7s ease-out forwards;
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; /* centers the box vertically */
-  font-family: sans-serif;
+  align-items: center;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
   background-color: #f7f7f7;
   flex-direction: column;
 }
@@ -164,23 +171,17 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  /* Add transition for smooth property changes */
-  transition: all 0.5s ease-out; /* This helps with general layout changes */
-  overflow: hidden; /* Important for max-height animation */
+  transition: all 0.7s ease-out;
+  overflow: hidden;
 }
 
-/* Specific animations for adding and removing */
-.task-entering {
-  animation: taskEnter 0.5s ease-out forwards;
-}
-
-.task-exiting {
-  animation: taskExit 0.5s ease-out forwards;
+.li.complete {
+  background-color: #c2c2c2;
 }
 
 .text {
   flex: 1;
-  text-align: left; /* Changed from center for better flow with variable text length */
+  text-align: left;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
@@ -190,8 +191,4 @@ li {
   text-decoration: line-through;
   color: gray;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-}
-
-.li.complete {
-  background-color: #c2c2c2;
 }

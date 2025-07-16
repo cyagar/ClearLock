@@ -19,10 +19,22 @@
 .bottom-nav a {
   /* Text color */
   color: #000000;
-  /* Removes devault underline from links */
-  text-decoration: none;
-  /* Text slightly bold */
-  font-weight: 500;
   /* Min size, adjust based on width, max size */
   font-size: clamp(0.8rem, 3vw, 1rem);
+}
+
+.nav-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.bottom-nav a.active {
+  border-bottom: 2px solid #000000;
+  transform: translateY(-2px);
+  padding-bottom: 5px;
+}
+
+.bottom-nav a:hover {
+  transform: translateY(-2px);
 }

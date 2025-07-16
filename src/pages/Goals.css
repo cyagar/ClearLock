@@ -81,12 +81,12 @@ body {
   padding: 20px;
   background-color: white;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 2rem;
   color: #000000;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
@@ -134,7 +134,6 @@ h1 {
 
 .edit-btn {
   background-color: #ffc107;
-  color: black;
 }
 
 .complete-btn {

@@ -1,9 +1,17 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import Home from "./pages/Home";
 import Timer from "./pages/Timer";
 import Goals from "./pages/Goals";
 import "./App.css";
+import HomeIcon from "./assets/homeReal.png";
+import TimerIcon from "./assets/timerReal.png";
+import GoalsIcon from "./assets/goalsReal.png";
 
 function App() {
   // Timer logic that is in App.jsx so it can always runs no matter where in the app
@@ -66,9 +74,15 @@ function App() {
         </Routes>
         {/* Bottom navigation bar, each Link updates the URL and triggers corresponding Route to render correct page */}
         <nav className="bottom-nav">
-          <Link to="/timer">Timer</Link>
-          <Link to="/">Home</Link>
-          <Link to="/goals">Goals</Link>
+          <NavLink to="/timer">
+            <img src={TimerIcon} alt="Timer" className="nav-icon" />
+          </NavLink>
+          <NavLink to="/">
+            <img src={HomeIcon} alt="Home" className="nav-icon" />
+          </NavLink>
+          <NavLink to="/goals">
+            <img src={GoalsIcon} alt="Goals" className="nav-icon" />
+          </NavLink>
         </nav>
       </div>
     </Router>

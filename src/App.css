@@ -1,25 +1,18 @@
 .bottom-nav {
-  /* Fixes nav bar to bottom of viewport */
   position: fixed;
   bottom: 0;
   left: 0;
-  /* Make bar stretch across the full width of the screen */
   width: 100%;
-  /* Nav bar color */
   background-color: #f3f4f6;
-  /* Lay out nav links evenly across width of the bar */
   display: flex;
   justify-content: space-around;
-  /* Vertical padding */
   padding: 1rem 0;
-  /* Subtle top border to separate the nav and content */
+  padding-bottom: 0.25rem;
   border-top: 1px solid #ccc;
 }
 
 .bottom-nav a {
-  /* Text color */
   color: #000000;
-  /* Min size, adjust based on width, max size */
   font-size: clamp(0.8rem, 3vw, 1rem);
 }
 
@@ -32,7 +25,7 @@
 .bottom-nav a.active {
   border-bottom: 2px solid #000000;
   transform: translateY(-2px);
-  padding-bottom: 5px;
+  padding-bottom: 3px;
 }
 
 .bottom-nav a:hover {

@@ -73,6 +73,12 @@ body {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   background-color: #f7f7f7;
   flex-direction: column;
+  overflow-y: hidden;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
 }
 
 .goals-container {
@@ -123,13 +129,13 @@ h1 {
 }
 
 .todo-btn {
-  background-color: #0f25a0;
+  background-color: #0c007c;
   color: white;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 .todo-btn:hover {
-  background-color: #09186b;
+  background-color: #0a015c;
 }
 
 .edit-btn {

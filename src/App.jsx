@@ -15,10 +15,15 @@ import GoalsIcon from "./assets/goalsReal.png";
 
 function App() {
   // Timer logic that is in App.jsx so it can always runs no matter where in the app
-  const [timeLeft, setTimeLeft] = useState(0.1 * 60);
+  const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
   // To store the id returned by setInterval
   const intervalRef = useRef(null);
+  // Tracks if the timer session has been initiated (this is so the initial info screen only appears once)
+  const [initiatedSession, setInitiatedSession] = useState(false);
+  const [isTimerDone, setIsTimerDone] = useState(false);
+  const [isTimerBreak, setIsTimerBreak] = useState(false);
+
 
   // React effect that runs when [isRunning] changes
   useEffect(() => {
@@ -33,6 +38,7 @@ function App() {
             clearInterval(intervalRef.current);
             intervalRef.current = null;
             setIsRunning(false);
+            setIsTimerDone(true);
             return 0;
           }
           // Time remaning, subtract one
@@ -66,6 +72,13 @@ function App() {
                 isRunning={isRunning}
                 setIsRunning={setIsRunning}
                 intervalRef={intervalRef}
+                initiatedSession={initiatedSession}
+                setInitiatedSession={setInitiatedSession}
+                isTimerDone={isTimerDone}
+                setIsTimerDone={setIsTimerDone}
+                isTimerBreak={isTimerBreak}
+                setIsTimerBreak={setIsTimerBreak}
+                
               />
             }
           />

@@ -1,19 +1,114 @@
+:root {
+  --background-color: #f7f7f7;
+  --text-color: #000000;
+  --nav-background: #f3f4f6;
+  --nav-active-line: #000000;
+  --button-start-bg: #10b981;
+  --button-start-hover-bg: #45a049;
+  --button-restart-bg: #ef4444;
+  --button-restart-hover-bg: #700505;
+  --button-break-bg: #26a8e4;
+  --button-break-hover-bg: #3384aa;
+  --button-guide-bg: #e2e8f0;
+  --button-guide-hover-bg: #cbd5e1;
+  --container-bg: #ffffff;
+  --border-color: #ccc;
+  --initial-screen-content-hover: rgba(48, 48, 48, 0.05);
+  --initial-text-color: #71bae4;
+  --info-text-color: #4d4d4d;
+  --congrats-text-color: #10b981;
+  --todo-item-bg: #f1f1f1;
+  --todo-item-completed-bg: #c2c2c2;
+  --todo-text-completed-color: gray;
+  --input-border-color: #ccc;
+  --input-text-color: #000000;
+  --input-placeholder-color: #666;
+  --goals-h1-color: #000000;
+  --todo-btn-bg: #0c007c;
+  --todo-btn-hover-bg: #0a015c;
+  --edit-btn-bg: #ffc107;
+  --complete-btn-bg: #28a745;
+  --delete-btn-bg: #dc3545;
+  --save-btn-bg: #17a2b8;
+  --save-btn-hover-bg: #0c6977;
+  --theme-btn:  #555;
+  --theme-btn-hover: #383838;
+}
+
+/* Dark Mode Overrides (when html has data-theme="dark") */
+html[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --nav-background: #555;
+  --nav-active-line: #e0e0e0;
+  --button-start-bg: #0e8a5a;
+  --button-start-hover-bg: #0a6b46;
+  --button-restart-bg: #b52b2b;
+  --button-restart-hover-bg: #801f1f;
+  --button-break-bg: #1f8ad1;
+  --button-break-hover-bg: #1a6da7;
+  --button-guide-bg: #3a3a3a;
+  --button-guide-hover-bg: #5a5a5a;
+  --container-bg: #2a2a2a;
+  --border-color: #555;
+  --initial-screen-content-hover: rgba(255, 255, 255, 0.1);
+  --initial-text-color: #8bbff7;
+  --info-text-color: #b0b0b0;
+  --congrats-text-color: #82e0aa;
+  --todo-item-bg: #3a3a3a;
+  --todo-item-completed-bg: #555;
+  --todo-text-completed-color: #aaa;
+  --input-border-color: #555;
+  --input-text-color: #f0f0f0;
+  --input-placeholder-color: #ccc;
+  --goals-h1-color: #f0f0f0;
+  --todo-btn-bg: #09005c;
+  --todo-btn-hover-bg: #070042;
+  --edit-btn-bg: #d19e07;
+  --complete-btn-bg: #208736;
+  --delete-btn-bg: #b32a3a;
+  --save-btn-bg: #138295;
+  --save-btn-hover-bg: #094e5a;
+  --theme-btn:  #555;
+  --theme-btn-hover: #383838;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  flex-direction: column;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.app-container {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #f3f4f6;
+  background-color: var(--nav-background);
   display: flex;
   justify-content: space-around;
   padding: 1rem 0;
   padding-bottom: 0.25rem;
-  border-top: 1px solid #ccc;
-}
-
-.bottom-nav a {
-  color: #000000;
-  font-size: clamp(0.8rem, 3vw, 1rem);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .nav-icon {
@@ -23,11 +118,30 @@
 }
 
 .bottom-nav a.active {
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid var(--nav-active-line);
   transform: translateY(-2px);
   padding-bottom: 3px;
 }
 
 .bottom-nav a:hover {
   transform: translateY(-2px);
+}
+
+.theme-toggle-button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--theme-btn);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--theme-btn-hover);
 }

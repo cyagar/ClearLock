@@ -5,25 +5,28 @@ import {
   NavLink,
 } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
+import { useTheme } from "./pages/ThemeContext.jsx";
 import Home from "./pages/Home";
 import Timer from "./pages/Timer";
 import Goals from "./pages/Goals";
-import "./App.css";
 import HomeIcon from "./assets/homeReal.png";
 import TimerIcon from "./assets/timerReal.png";
 import GoalsIcon from "./assets/goalsReal.png";
+import "./App.css";
 
 function App() {
+  
+  // Use custom hook to access theme context, which provides current theme and a function to toggle it
+  const { theme, toggleTheme } = useTheme();
   // Timer logic that is in App.jsx so it can always runs no matter where in the app
   const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
+  const [isTimerDone, setIsTimerDone] = useState(false);
+  const [isTimerBreak, setIsTimerBreak] = useState(false);
   // To store the id returned by setInterval
   const intervalRef = useRef(null);
   // Tracks if the timer session has been initiated (this is so the initial info screen only appears once)
   const [initiatedSession, setInitiatedSession] = useState(false);
-  const [isTimerDone, setIsTimerDone] = useState(false);
-  const [isTimerBreak, setIsTimerBreak] = useState(false);
-
 
   // React effect that runs when [isRunning] changes
   useEffect(() => {
@@ -56,8 +59,12 @@ function App() {
   return (
     // Enables client-side routing, listens to URL changes and displays components based on current route
     <Router>
-      {/* Main container for entire app */}
-      <div className="app-container">
+      {/* Main container for entire app, conditionally apply dark mode class */}
+      <div className={`app-container ${theme === "dark" ? "dark-mode" : ""}`}>
+        {/* Theme toggle button */}
+        <button onClick={toggleTheme} className="theme-toggle-button">
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
         {/* Defines routes for the app */}
         <Routes>
           {/* If URL path is exactly / then render Home compenent */}
@@ -78,7 +85,6 @@ function App() {
                 setIsTimerDone={setIsTimerDone}
                 isTimerBreak={isTimerBreak}
                 setIsTimerBreak={setIsTimerBreak}
-                
               />
             }
           />

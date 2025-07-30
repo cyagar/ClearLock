@@ -63,39 +63,23 @@
   animation: taskExit 0.7s ease-out forwards;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-  background-color: #f7f7f7;
-  flex-direction: column;
-  overflow-y: hidden;
-}
-
-html {
-    height: 100%;
-    overflow: hidden;
-}
-
 .goals-container {
-  width: 90vw;
+  width: 80vw;
   max-width: 600px;
   padding: 20px;
-  background-color: white;
+  background-color: var(--container-bg);
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   text-align: center;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 h1 {
   margin-bottom: 30px;
   font-size: 2rem;
-  color: #000000;
+  color: var(--goals-h1-color);
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+  transition: color 0.5s ease;
 }
 
 .todo-form {
@@ -109,10 +93,19 @@ h1 {
 .edit-input {
   flex: 1;
   padding: 8px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border-color);
   border-radius: 6px;
   font-size: 1rem;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background-color: var(--todo-item-bg);
+  color: var(--input-text-color);
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+
+.todo-input::placeholder,
+.edit-input::placeholder {
+  color: var(--input-placeholder-color);
+  transition: color 0.5s ease;
 }
 
 .todo-btn,
@@ -122,44 +115,45 @@ h1 {
 .save-btn {
   padding: 7px 13px;
   margin-left: 6px;
-  font-size: 0.9rem;
+  font-size: clamp(0.5rem, 3vw, 0.9rem);
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .todo-btn {
-  background-color: #0c007c;
+  background-color: var(--todo-btn-bg);
   color: white;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 .todo-btn:hover {
-  background-color: #0a015c;
+  background-color: var(--todo-btn-hover-bg);
 }
 
 .edit-btn {
-  background-color: #ffc107;
+  background-color: var(--edit-btn-bg);
 }
 
 .complete-btn {
-  background-color: #28a745;
+  background-color: var(--complete-btn-bg);
   color: white;
 }
 
 .delete-btn {
-  background-color: #dc3545;
+  background-color: var(--delete-btn-bg);
   color: white;
 }
 
 .save-btn {
-  background-color: #17a2b8;
+  background-color: var(--save-btn-bg);
   color: white;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 .save-btn:hover {
-  background-color: #0c6977;
+  background-color: var(--save-btn-hover-bg);
 }
 
 ul {
@@ -168,7 +162,7 @@ ul {
 }
 
 li {
-  background-color: #f1f1f1;
+  background-color: var(--todo-item-bg);
   margin-bottom: 10px;
   padding: 12px;
   border-radius: 8px;
@@ -176,24 +170,29 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out, background-color 0.5s ease;
   overflow: hidden;
 }
 
 .li.complete {
-  background-color: #c2c2c2;
+  background-color: var(--todo-item-completed-bg);
 }
 
 .text {
   flex: 1;
   text-align: left;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  color: var(--text-color);
+  transition: color 0.5s ease;
 }
 
 .text-completed {
   flex: 1;
   text-align: left;
   text-decoration: line-through;
-  color: gray;
+  color: var(--todo-text-completed-color);
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  transition: color 0.5s ease;
 }

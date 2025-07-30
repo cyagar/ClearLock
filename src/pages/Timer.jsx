@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Timer.css";
-import LockReal from "../assets/lockReal.png";
+import LockIcon from "../assets/lockReal.png";
 
 // Recieve timer props from App.jsx
 function Timer({
@@ -14,8 +14,9 @@ function Timer({
   isTimerDone,
   setIsTimerDone,
   isTimerBreak,
-  setIsTimerBreak
+  setIsTimerBreak,
 }) {
+  
   // For the guided access info button
   const [showGuidedAdvice, setShowGuidedAdvice] = useState(false);
   // For fade-in animation of the timer content
@@ -92,17 +93,16 @@ function Timer({
             onClick={handleInitiateSessionClick}
           >
             <img
-              src={LockReal}
+              src={LockIcon}
               alt="Initiate Clear Lock Session"
               className="initiate-image"
             />
             <h2 className="initiate-text">Start ClearLock Session</h2>
           </div>
           <p className="info-text">
-            Tap the lock to begin your 25-minute focus session. When the timer
-            ends, you will be prompted to take a 5-minute break or go again. Repeat to
-            stay in the zone and get things done. Let's get started, make every
-            minute count!
+            Tap the lock to begin your 25-minute focus session. When it ends,
+            take a 5-minute break or go again. Repeat to stay in the zone and
+            get things done. Let's get started, make every minute count!
           </p>
         </div>
       ) : (

@@ -5,11 +5,14 @@
   align-items: center;
   text-align: center;
   padding-top: 140px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .initial-timer-screen-content {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -21,8 +24,7 @@
 }
 
 .initial-timer-screen-content:hover {
-  background-color: rgba(48, 48, 48, 0.05);
-  transform: scale(1.02);
+  background-color: var(--initial-screen-content-hover);
 }
 
 .initiate-image {
@@ -31,9 +33,10 @@
 
 .initiate-text {
   font-size: clamp(1.5rem, 5vw, 1.8rem);
-  color: #71bae4;
+  color: var(--initial-text-color);
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   line-height: 1.3;
+  transition: color 0.5s ease;
 }
 
 .info-text {
@@ -41,9 +44,10 @@
   font-size: clamp(0.9rem, 3vw, 1.2rem);
   max-width: 500px;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  color: #4d4d4d;
+  color: var(--info-text-color);
   line-height: 1.6;
   text-align: center;
+  transition: color 0.5s ease;
 }
 
 @keyframes timerFadeIn {
@@ -87,7 +91,8 @@
 .timer-display {
   font-size: clamp(6rem, 15vw, 12rem);
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  color: #111;
+  color: var(--text-color);
+  transition: color 0.5s ease;
 }
 
 .button-row {
@@ -98,67 +103,63 @@
 }
 
 .start-button,
-.restart-button {
+.restart-button,
+.break-button {
   padding: 0.75rem 1.5rem;
   margin: 0.5rem;
   font-size: 0.9rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
 .start-button {
-  background-color: #10b981;
-  color: white;
+  background-color: var(--button-start-bg);
 }
 
 .restart-button {
-  background-color: #ef4444;
-  color: white;
+  background-color: var(--button-restart-bg);
 }
 
 .start-button:hover {
-  background-color: #45a049;
+  background-color: var(--button-start-hover-bg);
 }
 
 .restart-button:hover {
-  background-color: #700505;
+  background-color: var(--button-restart-hover-bg);
+}
+
+.break-button {
+  background-color: var(--button-break-bg);
 }
 
 .break-button:hover {
-  background-color: #3384aa;
+  background-color: var(--button-break-hover-bg);
 }
 
 .congrats-text {
   font-size: 2rem;
-  color: #10b981;
+  color: var(--congrats-text-color);
   margin-bottom: 1rem;
   max-width: 500px;
-}
-
-.break-button {
-  background-color: #26a8e4;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  margin: 0.5rem;
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  transition: color 0.5s ease;
 }
 
 .guided-access-btn {
   font-size: 0.9rem;
   padding: 0.4rem 0.9rem;
-  background: #e2e8f0;
-  color: #000000;
+  background: var(--button-guide-bg);
+  color: var(--input-text-color);
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .guided-access-btn:hover {
-  background: #cbd5e1;
+  background: var(--button-guide-hover-bg);
 }
 
 .guided-access-overlay {
@@ -187,7 +188,7 @@
 }
 
 .guided-access-dialog {
-  background: #ffffff;
+  background: var(--container-bg);
   width: 95%;
   max-width: 500px;
   min-width: 300px;
@@ -198,24 +199,26 @@
   text-align: center;
   font-size: clamp(0.95rem, 3.5vw, 1.05rem);
   line-height: 1.6;
-  color: #000000;
+  color: var(--text-color);
   opacity: 0;
   animation: dialogPopIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 .close-btn {
   margin-top: 1.5rem;
   padding: 0.6rem 1.5rem;
-  background: #10b981;
-  color: #fff;
+  background: var(--button-start-bg);
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: background 0.3s ease;
 }
 
 .close-btn:hover {
-  background: #0e9b70;
+  background: var(--button-start-hover-bg);
   transform: translateY(-1px);
 }
 

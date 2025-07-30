@@ -27,18 +27,19 @@
   margin: 0;
   padding: 0;
   font-size: clamp(6rem, 15vw, 12rem);
-  color: #000000;
+  color: var(--text-color);
   letter-spacing: 1px;
 }
 
 .quote {
   min-height: 5em;
   max-width: 500px;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   opacity: 0;
   transition: opacity 2s ease-in-out;
   margin-bottom: 1.5rem;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+  color: var(--text-color);
 }
 
 .quote.visible {

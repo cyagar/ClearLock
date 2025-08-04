@@ -1,5 +1,3 @@
-Markdown
-
 # ClearLock
 
 A minimalist productivity web application that combines a focused Pomodoro-style timer with a simple home screen and to-do list. ClearLock helps you stay in the zone, manage your tasks, and make every minute count.
@@ -16,7 +14,7 @@ A minimalist productivity web application that combines a focused Pomodoro-style
 
 You can view a live version of the application here:
 
-[*ClearLock**](https://clearlock.netlify.app/)
+[*ClearLock*](https://clearlock.netlify.app/)
 
 ## Technologies Used
 

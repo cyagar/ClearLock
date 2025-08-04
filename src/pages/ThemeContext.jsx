@@ -5,20 +5,20 @@ export const ThemeContext = createContext();
 
 // Create a ThemeProvider component
 export const ThemeProvider = ({ children }) => {
-  // Initialize theme state from localStorage or default to 'light'
+  // Initialize theme state from localStorage or default to light
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme || "light";
   });
 
   // Use a useEffect hook to apply the data-theme attribute to the html element
-  // and save the theme preference to localStorage whenever the theme changes.
+  // and save the theme preference to localStorage whenever the theme changes
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem("theme", theme);
-  }, [theme]); // Rerun this effect whenever the 'theme' state changes
+  }, [theme]); // Rerun this effect whenever the theme state changes
 
-  // Function to toggle between light and dark themes
+  // Toggle between light and dark themes
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };

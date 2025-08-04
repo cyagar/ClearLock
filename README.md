@@ -4,7 +4,7 @@ Markdown
 
 A minimalist productivity web application that combines a focused Pomodoro-style timer with a simple home screen and to-do list. ClearLock helps you stay in the zone, manage your tasks, and make every minute count.
 
-## ✨ Features
+## Features
 
 * **Focus Timer:** A 25-minute Pomodoro-style timer to help you work in focused bursts, with a short 5-minute break period when a session is complete.
 * **Persistent To-Do List:** A to-do list where you can add, edit, mark as complete, or delete tasks. Your list is saved locally in your browser, so your goals are always there when you return.
@@ -12,13 +12,13 @@ A minimalist productivity web application that combines a focused Pomodoro-style
 * **Theme Toggle:** A simple button to switch between light and dark modes for a comfortable viewing experience.
 * **Responsive Design:** The application is fully responsive and optimized for both desktop and mobile devices.
 
-## 🚀 Live Demo
+## Live Demo
 
 You can view a live version of the application here:
 
-[[](https://clearlock.netlify.app/)]
+[*ClearLock**](https://clearlock.netlify.app/)
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 * **Frontend:**
     * [**React**](https://reactjs.org/): A JavaScript library for building user interfaces.
@@ -29,7 +29,7 @@ You can view a live version of the application here:
 * **Other:**
     * [**uuid**](https://www.npmjs.com/package/uuid): A library for generating unique IDs for the to-do list items.
 
-## 💻 Getting Started
+## Getting Started
 
 To run the project locally, follow these steps:
 
@@ -59,7 +59,7 @@ To run the project locally, follow these steps:
 
 The application should now be running at `http://localhost:5173/` (or another port if specified by Vite).
 
-## 📝 Usage
+## Usage
 
 * **Home Page:** Displays the current time and a random inspirational quote.
 * **Timer Page:** Click the lock icon to start a 25-minute focus session. Use the "Start/Pause" button to control the timer. When a session is complete, you can take a 5-minute break or start another session.

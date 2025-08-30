@@ -12,10 +12,13 @@ import Goals from "./pages/Goals";
 import HomeIcon from "./assets/homeReal.png";
 import TimerIcon from "./assets/timerReal.png";
 import GoalsIcon from "./assets/goalsReal.png";
+import HomeWhite from "./assets/homeWhite.png";
+import TimerWhite from "./assets/timerWhite.png";
+import GoalsWhite from "./assets/goalsWhite.png";
+
 import "./App.css";
 
 function App() {
-  
   // Use custom hook to access theme context, which provides current theme and a function to toggle it
   const { theme, toggleTheme } = useTheme();
   // Timer logic that is in App.jsx so it can always runs no matter where in the app
@@ -92,16 +95,32 @@ function App() {
           <Route path="/goals" element={<Goals />} />
         </Routes>
         {/* Bottom navigation bar, each Link updates the URL and triggers corresponding Route to render correct page */}
-        <nav className="bottom-nav">
-          <NavLink to="/timer">
-            <img src={TimerIcon} alt="Timer" className="nav-icon" />
-          </NavLink>
-          <NavLink to="/">
-            <img src={HomeIcon} alt="Home" className="nav-icon" />
-          </NavLink>
-          <NavLink to="/goals">
-            <img src={GoalsIcon} alt="Goals" className="nav-icon" />
-          </NavLink>
+        <nav className={`bottom-nav ${theme === "dark" ? "dark-mode" : ""}`}>
+          {theme === "light" ? (
+            <>
+              <NavLink to="/timer">
+                <img src={TimerIcon} alt="Timer" className="nav-icon" />
+              </NavLink>
+              <NavLink to="/">
+                <img src={HomeIcon} alt="Home" className="nav-icon" />
+              </NavLink>
+              <NavLink to="/goals">
+                <img src={GoalsIcon} alt="Goals" className="nav-icon" />
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to="/timer">
+                <img src={TimerWhite} alt="Timer" className="nav-icon" />
+              </NavLink>
+              <NavLink to="/">
+                <img src={HomeWhite} alt="Home" className="nav-icon" />
+              </NavLink>
+              <NavLink to="/goals">
+                <img src={GoalsWhite} alt="Goals" className="nav-icon" />
+              </NavLink>
+            </>
+          )}
         </nav>
       </div>
     </Router>

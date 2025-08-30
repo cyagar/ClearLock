@@ -117,6 +117,12 @@ html {
   object-fit: contain;
 }
 
+.dark-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
 .bottom-nav a.active {
   border-bottom: 2px solid var(--nav-active-line);
   transform: translateY(-2px);

@@ -28,11 +28,11 @@
 }
 
 .initiate-image {
-  max-width: 200px;
+  max-width: 150px;
 }
 
 .initiate-text {
-  font-size: clamp(1.5rem, 5vw, 1.8rem);
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
   color: var(--initial-text-color);
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   line-height: 1.3;
@@ -41,7 +41,7 @@
 
 .info-text {
   padding: 0 20px;
-  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   max-width: 500px;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   color: var(--info-text-color);

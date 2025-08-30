@@ -97,7 +97,7 @@ function Timer({
               alt="Initiate Clear Lock Session"
               className="initiate-image"
             />
-            <h2 className="initiate-text">Start ClearLock Session</h2>
+            <h2 className="initiate-text">Start ClearLock</h2>
           </div>
           <p className="info-text">
             Tap the lock to begin your 25-minute focus session. When it ends,

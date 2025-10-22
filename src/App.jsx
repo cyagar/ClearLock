@@ -28,36 +28,47 @@ function App() {
   const [isTimerBreak, setIsTimerBreak] = useState(false);
   // To store the id returned by setInterval
   const intervalRef = useRef(null);
+  const targetTimeRef = useRef(null)
   // Tracks if the timer session has been initiated (this is so the initial info screen only appears once)
   const [initiatedSession, setInitiatedSession] = useState(false);
 
-  // React effect that runs when [isRunning] changes
+// React effect that runs when [isRunning] changes
   useEffect(() => {
-    // Pressed start
-    if (isRunning && intervalRef.current === null) {
-      // Store id and run the following every 1000 miliseconds (1 second)
+    // Timer is running
+    if (isRunning) {
+      // Set the target end time based on the current timeLeft
+      // This works for starting, resuming, or starting a break
+      targetTimeRef.current = Date.now() + timeLeft * 1000;
+      // Clear any old interval (just in case)
+      clearInterval(intervalRef.current);
       intervalRef.current = setInterval(() => {
-        // Update timeLeft state using previous state value
-        setTimeLeft((prev) => {
-          // Time done
-          if (prev <= 1) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
-            setIsRunning(false);
-            setIsTimerDone(true);
-            return 0;
-          }
-          // Time remaning, subtract one
-          return prev - 1;
-        });
-      }, 1000);
+        // Calculate the actual remaining time
+        const remainingMilliseconds = targetTimeRef.current - Date.now();
+        const remainingSeconds = Math.round(remainingMilliseconds / 1000);
+        // Check if timer is done
+        if (remainingSeconds <= 0) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+          setIsRunning(false);
+          setIsTimerDone(true);
+          setTimeLeft(0);
+        } else {
+          // Update the state with the correct time
+          setTimeLeft(remainingSeconds);
+        }
+      }, 500); // Check every 500ms for a responsive UI
     }
-    // Cleanup function for useEffect, will run before next run or on unmount
-    return () => {
+    // Timer is paused
+    else {
+      // Clear interval when paused
       clearInterval(intervalRef.current);
       intervalRef.current = null;
+    }
+    // Cleanup function for when the component unmounts
+    return () => {
+      clearInterval(intervalRef.current);
     };
-  }, [isRunning]);
+  }, [isRunning]); // This effect *only* needs to run when isRunning changes
 
   return (
     // Enables client-side routing, listens to URL changes and displays components based on current route

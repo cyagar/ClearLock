@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import "./Timer.css";
 import LockIcon from "../assets/lockReal.png";
 
+const preloadedLockIcon = new Image();
+preloadedLockIcon.src = LockIcon;
+
 // Recieve timer props from App.jsx
 function Timer({
   timeLeft,

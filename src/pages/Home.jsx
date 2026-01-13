@@ -28,7 +28,7 @@ function Home() {
   // Fetch quote from api
   async function fetchQuote() {
     try {
-      const zenURL = "https://zenquotes.io/api/random";
+      const zenURL = `https://zenquotes.io/api/random?t=${Date.now()}`;
       const proxyURL = "https://corsproxy.io/?" + encodeURIComponent(zenURL);
       const res = await fetch(proxyURL);
       const [data] = await res.json();

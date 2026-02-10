@@ -24,10 +24,10 @@ function Home() {
       const zenURL = "https://zenquotes.io/api/random";
       // Using AllOrigins proxy, it wraps the response in a 'contents' property
       const proxyURL = `https://api.allorigins.win/get?url=${encodeURIComponent(zenURL)}`;
-      
+
       const res = await fetch(proxyURL);
       if (!res.ok) throw new Error("Network response failed");
-      
+
       const wrapper = await res.json();
       // AllOrigins returns the API response as a string inside .contents
       const data = JSON.parse(wrapper.contents);
@@ -77,7 +77,6 @@ function Home() {
           <span className="placeholder">Loading quote...</span>
         )}
       </div>
-
       <div className={`clock ${clockVisible ? "visible" : ""}`}>
         <h1 className="clock-time">{time}</h1>
       </div>

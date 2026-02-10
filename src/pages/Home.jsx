@@ -21,24 +21,20 @@ function Home() {
 
   async function fetchQuote() {
     try {
-      const zenURL = "https://zenquotes.io/api/random";
-      // Using AllOrigins proxy, it wraps the response in a 'contents' property
-      const proxyURL = `https://api.allorigins.win/get?url=${encodeURIComponent(zenURL)}`;
+      const quotableURL = "https://api.quotable.io/random";
+      const res = await fetch(quotableURL);
 
-      const res = await fetch(proxyURL);
       if (!res.ok) throw new Error("Network response failed");
 
-      const wrapper = await res.json();
-      // AllOrigins returns the API response as a string inside .contents
-      const data = JSON.parse(wrapper.contents);
+      const data = await res.json();
 
-      if (data && data[0]) {
-        setQuote({ text: data[0].q, author: data[0].a });
+      if (data && data.content) {
+        setQuote({ text: data.content, author: data.author });
         setQuoteVisible(true);
       }
     } catch (err) {
       console.error("Fetch Error:", err);
-      // Fallback if proxy or API fails
+      // Fallback if API fails
       setQuote({
         text: "At the end of the day the day ends.",
         author: "Unknown",

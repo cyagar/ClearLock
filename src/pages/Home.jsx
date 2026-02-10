@@ -21,15 +21,14 @@ function Home() {
 
   async function fetchQuote() {
     try {
-      const quotableURL = "https://api.quotable.io/random";
-      const res = await fetch(quotableURL);
+      const res = await fetch("https://dummyjson.com/quotes/random");
 
       if (!res.ok) throw new Error("Network response failed");
 
       const data = await res.json();
 
-      if (data && data.content) {
-        setQuote({ text: data.content, author: data.author });
+      if (data && data.quote) {
+        setQuote({ text: data.quote, author: data.author });
         setQuoteVisible(true);
       }
     } catch (err) {

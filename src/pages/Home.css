@@ -45,3 +45,8 @@
 .quote.visible {
   opacity: 1;
 }
+
+.author {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 1rem;
+}
